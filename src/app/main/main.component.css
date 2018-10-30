@@ -14,3 +14,26 @@
 #right:after {
   clear: both;
 }
+
+.road-info, .statics {
+  width: 50%;
+  height: 50%;
+  float: left;
+  padding: 8px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.monitor-line-list {
+  width: 100%;
+  height: 50%;
+  clear: both;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 8px;
+  overflow: auto;
+}
+
+
