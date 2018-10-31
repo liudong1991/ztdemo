@@ -2,6 +2,9 @@
   width: 40%;
   height: 100%;
   float: left;
+  -moz-box-shadow: 6px 6px 6px #828282;
+  -webkit-box-shadow: 6px 6px 6px #828282;
+  box-shadow: 6px 6px 6px #828282;
 }
 
 #right {
@@ -34,6 +37,40 @@
   box-sizing: border-box;
   padding: 8px;
   overflow: auto;
+}
+
+.road-info {
+  padding-right: 4px;
+  padding-bottom: 4px;
+}
+
+.statics {
+  padding-left: 4px;
+  padding-bottom: 4px;
+}
+
+.monitor-line-list {
+  padding-top: 4px;
+}
+
+.mp-container {
+  background-color: #fafafa;
+  height: 100%;
+  overflow: hidden;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-box-shadow: 6px 6px 6px #828282;
+  -webkit-box-shadow: 6px 6px 6px #828282;
+  box-shadow: 6px 6px 6px #828282;
+  position: relative;
+}
+
+.title {
+  background-color: skyblue;
+  color: white;
+  height: 36px;
+  line-height: 36px;
+  padding-left: 8px;
 }
 
 

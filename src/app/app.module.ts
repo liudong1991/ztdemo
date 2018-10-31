@@ -12,6 +12,15 @@ import {RoadInfoComponent} from './road-info/road-info.component';
 import {RoadStaticsComponent} from './road-statics/road-statics.component';
 import {MonitorLineListComponent} from './monitor-line-list/monitor-line-list.component';
 import {MatTableModule} from '@angular/material/table';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import {MatCardModule} from '@angular/material/card';
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
 
 @NgModule({
   declarations: [
@@ -28,9 +37,16 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatCheckboxModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    SwiperModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: SWIPER_CONFIG,
+      useValue: DEFAULT_SWIPER_CONFIG
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

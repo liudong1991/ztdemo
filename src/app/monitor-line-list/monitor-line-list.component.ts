@@ -1,23 +1,164 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Segment} from '../segment';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+const HEADERS: string[] = ['监测段编号', '起讫桩号', '曾用桩号', '所属单位', '位置', '深孔数量(个)', '地表数量(个)', '坡向(°)', '走向(°)', '坡长(m)', '坡高(m)', '经度(°)', '纬度(°)'];
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+const SEGMENTS: Segment[] = [
+  {
+    segmentNum: '001',
+    stake: 'K37+445~K37+820',
+    usedStake: '无',
+    company: '中铁开发投资有限公司',
+    position: '右侧',
+    skNum: 2,
+    dbNum: 25,
+    pDirection: 278,
+    trend: 188,
+    pLength: 567,
+    pHeight: 48,
+    Lng: 102.2429,
+    Lat: 24.3926
+  }, {
+    segmentNum: '001',
+    stake: 'K37+445~K37+820',
+    usedStake: '无',
+    company: '中铁开发投资有限公司',
+    position: '右侧',
+    skNum: 2,
+    dbNum: 25,
+    pDirection: 278,
+    trend: 188,
+    pLength: 567,
+    pHeight: 48,
+    Lng: 102.2429,
+    Lat: 24.3926
+  }, {
+    segmentNum: '001',
+    stake: 'K37+445~K37+820',
+    usedStake: '无',
+    company: '中铁开发投资有限公司',
+    position: '右侧',
+    skNum: 2,
+    dbNum: 25,
+    pDirection: 278,
+    trend: 188,
+    pLength: 567,
+    pHeight: 48,
+    Lng: 102.2429,
+    Lat: 24.3926
+  }, {
+    segmentNum: '001',
+    stake: 'K37+445~K37+820',
+    usedStake: '无',
+    company: '中铁开发投资有限公司',
+    position: '右侧',
+    skNum: 2,
+    dbNum: 25,
+    pDirection: 278,
+    trend: 188,
+    pLength: 567,
+    pHeight: 48,
+    Lng: 102.2429,
+    Lat: 24.3926
+  }, {
+    segmentNum: '001',
+    stake: 'K37+445~K37+820',
+    usedStake: '无',
+    company: '中铁开发投资有限公司',
+    position: '右侧',
+    skNum: 2,
+    dbNum: 25,
+    pDirection: 278,
+    trend: 188,
+    pLength: 567,
+    pHeight: 48,
+    Lng: 102.2429,
+    Lat: 24.3926
+  }, {
+    segmentNum: '001',
+    stake: 'K37+445~K37+820',
+    usedStake: '无',
+    company: '中铁开发投资有限公司',
+    position: '右侧',
+    skNum: 2,
+    dbNum: 25,
+    pDirection: 278,
+    trend: 188,
+    pLength: 567,
+    pHeight: 48,
+    Lng: 102.2429,
+    Lat: 24.3926
+  }, {
+    segmentNum: '001',
+    stake: 'K37+445~K37+820',
+    usedStake: '无',
+    company: '中铁开发投资有限公司',
+    position: '右侧',
+    skNum: 2,
+    dbNum: 25,
+    pDirection: 278,
+    trend: 188,
+    pLength: 567,
+    pHeight: 48,
+    Lng: 102.2429,
+    Lat: 24.3926
+  }, {
+    segmentNum: '001',
+    stake: 'K37+445~K37+820',
+    usedStake: '无',
+    company: '中铁开发投资有限公司',
+    position: '右侧',
+    skNum: 2,
+    dbNum: 25,
+    pDirection: 278,
+    trend: 188,
+    pLength: 567,
+    pHeight: 48,
+    Lng: 102.2429,
+    Lat: 24.3926
+  }, {
+    segmentNum: '001',
+    stake: 'K37+445~K37+820',
+    usedStake: '无',
+    company: '中铁开发投资有限公司',
+    position: '右侧',
+    skNum: 2,
+    dbNum: 25,
+    pDirection: 278,
+    trend: 188,
+    pLength: 567,
+    pHeight: 48,
+    Lng: 102.2429,
+    Lat: 24.3926
+  }, {
+    segmentNum: '001',
+    stake: 'K37+445~K37+820',
+    usedStake: '无',
+    company: '中铁开发投资有限公司',
+    position: '右侧',
+    skNum: 2,
+    dbNum: 25,
+    pDirection: 278,
+    trend: 188,
+    pLength: 567,
+    pHeight: 48,
+    Lng: 102.2429,
+    Lat: 24.3926
+  }, {
+    segmentNum: '001',
+    stake: 'K37+445~K37+820',
+    usedStake: '无',
+    company: '中铁开发投资有限公司',
+    position: '右侧',
+    skNum: 2,
+    dbNum: 25,
+    pDirection: 278,
+    trend: 188,
+    pLength: 567,
+    pHeight: 48,
+    Lng: 102.2429,
+    Lat: 24.3926
+  }
 ];
 
 @Component({
@@ -27,10 +168,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class MonitorLineListComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  data = SEGMENTS;
 
-  constructor() { }
+  headers = HEADERS;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

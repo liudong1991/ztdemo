@@ -1,4 +1,7 @@
-td:first-child{
+td:first-child {
   width: 5em;
   vertical-align: top;
+}
+table{
+  margin: 3px;
 }
