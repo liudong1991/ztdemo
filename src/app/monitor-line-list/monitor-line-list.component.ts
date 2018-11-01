@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Segment} from '../segment';
+import {Router} from '@angular/router';
 
 const HEADERS: string[] = ['监测段编号', '起讫桩号', '曾用桩号', '所属单位', '位置', '深孔数量(个)', '地表数量(个)', '坡向(°)', '走向(°)', '坡长(m)', '坡高(m)', '经度(°)', '纬度(°)'];
 
@@ -172,10 +173,14 @@ export class MonitorLineListComponent implements OnInit {
 
   headers = HEADERS;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
+  }
+
+  goSegmentDetail(): void {
+    this.router.navigateByUrl('segmentDetail');
   }
 
 }

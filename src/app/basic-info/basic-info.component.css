@@ -1,0 +1,26 @@
+.wrapper {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+table {
+  border-collapse: collapse;
+  height: 100%;
+  width: 100%;
+}
+
+td {
+  white-space: nowrap;
+  border: 1px solid #f0f0f0;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 14px;
+}
+
+td:nth-child(1),td:nth-child(3){
+  width: 5em;
+}
+

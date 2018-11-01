@@ -1,6 +1,7 @@
 td:first-child {
   width: 5em;
   vertical-align: top;
+  font-size: 14px;
 }
 table{
   margin: 3px;

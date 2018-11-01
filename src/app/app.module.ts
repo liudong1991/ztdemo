@@ -12,10 +12,19 @@ import {RoadInfoComponent} from './road-info/road-info.component';
 import {RoadStaticsComponent} from './road-statics/road-statics.component';
 import {MonitorLineListComponent} from './monitor-line-list/monitor-line-list.component';
 import {MatTableModule} from '@angular/material/table';
-import { SwiperModule } from 'ngx-swiper-wrapper';
-import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
-import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import {SwiperModule} from 'ngx-swiper-wrapper';
+import {SWIPER_CONFIG} from 'ngx-swiper-wrapper';
+import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 import {MatCardModule} from '@angular/material/card';
+import {NgxEchartsModule} from 'ngx-echarts';
+import { SegmentDetailComponent } from './segment-detail/segment-detail.component';
+import { ArrangementDiagramComponent } from './arrangement-diagram/arrangement-diagram.component';
+import { CrossSectionDiagramComponent } from './cross-section-diagram/cross-section-diagram.component';
+import { BasicInfoComponent } from './basic-info/basic-info.component';
+import { SitePhotosComponent } from './site-photos/site-photos.component';
+import { TopographicInfoComponent } from './topographic-info/topographic-info.component';
+import { MonitoringInfoComponent } from './monitoring-info/monitoring-info.component';
+import { StatisticalInfoComponent } from './statistical-info/statistical-info.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -28,7 +37,15 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MainComponent,
     RoadInfoComponent,
     RoadStaticsComponent,
-    MonitorLineListComponent
+    MonitorLineListComponent,
+    SegmentDetailComponent,
+    ArrangementDiagramComponent,
+    CrossSectionDiagramComponent,
+    BasicInfoComponent,
+    SitePhotosComponent,
+    TopographicInfoComponent,
+    MonitoringInfoComponent,
+    StatisticalInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +56,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatPaginatorModule,
     MatTableModule,
     SwiperModule,
-    MatCardModule
+    MatCardModule,
+    NgxEchartsModule
   ],
   providers: [
     {
