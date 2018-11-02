@@ -25,6 +25,10 @@ import { SitePhotosComponent } from './site-photos/site-photos.component';
 import { TopographicInfoComponent } from './topographic-info/topographic-info.component';
 import { MonitoringInfoComponent } from './monitoring-info/monitoring-info.component';
 import { StatisticalInfoComponent } from './statistical-info/statistical-info.component';
+import { HoleCurveComponent } from './hole-curve/hole-curve.component';
+import { SurfaceCurveComponent } from './surface-curve/surface-curve.component';
+import { CurveBasicInfoComponent } from './curve-basic-info/curve-basic-info.component';
+import { HoleSensorListComponent } from './hole-sensor-list/hole-sensor-list.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -45,7 +49,11 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SitePhotosComponent,
     TopographicInfoComponent,
     MonitoringInfoComponent,
-    StatisticalInfoComponent
+    StatisticalInfoComponent,
+    HoleCurveComponent,
+    SurfaceCurveComponent,
+    CurveBasicInfoComponent,
+    HoleSensorListComponent
   ],
   imports: [
     BrowserModule,

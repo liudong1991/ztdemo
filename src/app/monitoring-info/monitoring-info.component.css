@@ -1,0 +1,73 @@
+.content {
+  position: absolute;
+  top: 36px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.left, .right {
+  float: left;
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.title {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #f0f0f0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+.wrapper::-webkit-scrollbar { /*滚动条整体样式*/
+  width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
+  height: 10px;
+}
+
+.wrapper::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #E0E0E0;
+}
+
+.wrapper::-webkit-scrollbar-track { /*滚动条里面轨道*/
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: #EDEDED;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  border: 1px solid #f0f0f0;
+  text-align: center;
+  padding: 4px;
+  font-size: 14px;
+}
+
+td.item{
+  color: blue;
+}
+
+td.item:hover {
+  background-color: lightskyblue;
+  color: white;
+}
+
+

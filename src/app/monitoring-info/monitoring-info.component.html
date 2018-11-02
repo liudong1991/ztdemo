@@ -1,3 +1,37 @@
-<p>
-  monitoring-info works!
-</p>
+<div class="content">
+  <div class="left">
+    <div class="title">深部位移监测</div>
+    <div class="wrapper">
+      <table>
+        <tr>
+          <td>监测断面</td>
+          <td>测点编号</td>
+        </tr>
+        <tbody *ngFor="let item of holeSites">
+        <tr *ngFor="let tem of item.siteNo;let i = index">
+          <td *ngIf="i==0" [attr.rowspan]="item.siteNo.length">{{item.cross}}</td>
+          <td class="item" (click)="toHoleCurve()">{{tem}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="title">地表变形监测</div>
+    <div class="wrapper">
+      <table>
+        <tr>
+          <td>监测断面</td>
+          <td>测点编号</td>
+        </tr>
+        <tbody *ngFor="let item of surfaceSites">
+        <tr *ngFor="let tem of item.siteNo;let i = index">
+          <td *ngIf="i==0" [attr.rowspan]="item.siteNo.length">{{item.cross}}</td>
+          <td class="item" (click)="toSurfaceCurve()">{{tem}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
