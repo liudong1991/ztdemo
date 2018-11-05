@@ -45,8 +45,13 @@ export class MonitoringInfoComponent implements OnInit {
     },
   ];
 
-  toHoleCurve(): void {
-    this.router.navigateByUrl('holeCurve');
+  toHoleCurve(item: string): void {
+    // this.router.navigateByUrl('holeCurve');
+    this.router.navigate(['holeCurve'], {
+      queryParams: {
+        item: item
+      }
+    });
   }
 
   toSurfaceCurve(): void {

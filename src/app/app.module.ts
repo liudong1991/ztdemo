@@ -17,18 +17,25 @@ import {SWIPER_CONFIG} from 'ngx-swiper-wrapper';
 import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 import {MatCardModule} from '@angular/material/card';
 import {NgxEchartsModule} from 'ngx-echarts';
-import { SegmentDetailComponent } from './segment-detail/segment-detail.component';
-import { ArrangementDiagramComponent } from './arrangement-diagram/arrangement-diagram.component';
-import { CrossSectionDiagramComponent } from './cross-section-diagram/cross-section-diagram.component';
-import { BasicInfoComponent } from './basic-info/basic-info.component';
-import { SitePhotosComponent } from './site-photos/site-photos.component';
-import { TopographicInfoComponent } from './topographic-info/topographic-info.component';
-import { MonitoringInfoComponent } from './monitoring-info/monitoring-info.component';
-import { StatisticalInfoComponent } from './statistical-info/statistical-info.component';
-import { HoleCurveComponent } from './hole-curve/hole-curve.component';
-import { SurfaceCurveComponent } from './surface-curve/surface-curve.component';
-import { CurveBasicInfoComponent } from './curve-basic-info/curve-basic-info.component';
-import { HoleSensorListComponent } from './hole-sensor-list/hole-sensor-list.component';
+import {SegmentDetailComponent} from './segment-detail/segment-detail.component';
+import {ArrangementDiagramComponent} from './arrangement-diagram/arrangement-diagram.component';
+import {CrossSectionDiagramComponent} from './cross-section-diagram/cross-section-diagram.component';
+import {BasicInfoComponent} from './basic-info/basic-info.component';
+import {SitePhotosComponent} from './site-photos/site-photos.component';
+import {TopographicInfoComponent} from './topographic-info/topographic-info.component';
+import {MonitoringInfoComponent} from './monitoring-info/monitoring-info.component';
+import {StatisticalInfoComponent} from './statistical-info/statistical-info.component';
+import {HoleCurveComponent} from './hole-curve/hole-curve.component';
+import {SurfaceCurveComponent} from './surface-curve/surface-curve.component';
+import {CurveBasicInfoComponent} from './curve-basic-info/curve-basic-info.component';
+import {HoleSensorListComponent} from './hole-sensor-list/hole-sensor-list.component';
+import {TimeSelectorComponent} from './time-selector/time-selector.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {ReactiveFormsModule} from '@angular/forms';
+import { DeepHoleCurveComponent } from './deep-hole-curve/deep-hole-curve.component';
+import { DeepHoleSensorCurveComponent } from './deep-hole-sensor-curve/deep-hole-sensor-curve.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -53,7 +60,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     HoleCurveComponent,
     SurfaceCurveComponent,
     CurveBasicInfoComponent,
-    HoleSensorListComponent
+    HoleSensorListComponent,
+    TimeSelectorComponent,
+    DeepHoleCurveComponent,
+    DeepHoleSensorCurveComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +75,11 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatTableModule,
     SwiperModule,
     MatCardModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatMomentDateModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-hole-curve',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HoleCurveComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+    route.queryParams.subscribe(queryParams => {
+      this.selectedSite = queryParams.item;
+    });
+  }
 
   ngOnInit() {
+  }
+
+  selectedSite: string = '';
+
+  iswhichShow: boolean = true;
+
+  setSelectedSite(value: string) {
+    this.selectedSite = value;
   }
 
 }

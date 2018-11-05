@@ -10,7 +10,7 @@
         <tbody *ngFor="let item of holeSites">
         <tr *ngFor="let tem of item.siteNo;let i = index">
           <td *ngIf="i==0" [attr.rowspan]="item.siteNo.length">{{item.cross}}</td>
-          <td class="item" (click)="toHoleCurve()">{{tem}}</td>
+          <td class="item" (click)="toHoleCurve(tem)">{{tem}}</td>
         </tr>
         </tbody>
       </table>

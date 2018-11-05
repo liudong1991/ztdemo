@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Curve} from '../curve';
 
 @Component({
@@ -7,6 +7,8 @@ import {Curve} from '../curve';
   styleUrls: ['./curve-basic-info.component.css']
 })
 export class CurveBasicInfoComponent implements OnInit {
+
+  @Input() selectedSite: string;
 
   constructor() {
   }

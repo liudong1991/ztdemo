@@ -3,7 +3,7 @@
     <div class="mp-container">
       <div class="title">基本信息</div>
       <div class="content">
-        <app-curve-basic-info></app-curve-basic-info>
+        <app-curve-basic-info [selectedSite]="selectedSite"></app-curve-basic-info>
       </div>
     </div>
   </div>
@@ -11,7 +11,10 @@
     <div class="mp-container">
       <div class="title">监测点和传感器列表</div>
       <div class="content">
-        <app-hole-sensor-list></app-hole-sensor-list>
+        <app-hole-sensor-list
+          [selectedSite]="selectedSite"
+          (switchSite)="setSelectedSite($event)"
+          (onHoleAndSensorChange)="iswhichShow=$event"></app-hole-sensor-list>
       </div>
     </div>
   </div>
@@ -19,7 +22,7 @@
     <div class="mp-container">
       <div class="title">时间选择</div>
       <div class="content">
-
+        <app-time-selector></app-time-selector>
       </div>
     </div>
   </div>
@@ -28,9 +31,14 @@
 <div class="right">
   <div class="hole-curve">
     <div class="mp-container">
-      <div class="title">深部位移监测孔监测曲线</div>
+      <div class="title">{{iswhichShow?'深部位移监测孔监测曲线':'深孔单个传感器监测曲线'}}</div>
       <div class="content">
-
+        <div *ngIf="iswhichShow">
+          <app-deep-hole-curve></app-deep-hole-curve>
+        </div>
+        <div *ngIf="!iswhichShow">
+          <app-deep-hole-sensor-curve></app-deep-hole-sensor-curve>
+        </div>
       </div>
     </div>
   </div>
