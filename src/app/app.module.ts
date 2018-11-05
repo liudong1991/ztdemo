@@ -29,13 +29,10 @@ import {HoleCurveComponent} from './hole-curve/hole-curve.component';
 import {SurfaceCurveComponent} from './surface-curve/surface-curve.component';
 import {CurveBasicInfoComponent} from './curve-basic-info/curve-basic-info.component';
 import {HoleSensorListComponent} from './hole-sensor-list/hole-sensor-list.component';
+import {DeepHoleCurveComponent} from './deep-hole-curve/deep-hole-curve.component';
+import {DeepHoleSensorCurveComponent} from './deep-hole-sensor-curve/deep-hole-sensor-curve.component';
 import {TimeSelectorComponent} from './time-selector/time-selector.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatInputModule} from '@angular/material/input';
-import {MatMomentDateModule} from '@angular/material-moment-adapter';
-import {ReactiveFormsModule} from '@angular/forms';
-import { DeepHoleCurveComponent } from './deep-hole-curve/deep-hole-curve.component';
-import { DeepHoleSensorCurveComponent } from './deep-hole-sensor-curve/deep-hole-sensor-curve.component';
+import {MyDatePickerModule} from 'mydatepicker';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -61,9 +58,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SurfaceCurveComponent,
     CurveBasicInfoComponent,
     HoleSensorListComponent,
-    TimeSelectorComponent,
     DeepHoleCurveComponent,
-    DeepHoleSensorCurveComponent
+    DeepHoleSensorCurveComponent,
+    TimeSelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -76,10 +73,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SwiperModule,
     MatCardModule,
     NgxEchartsModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatMomentDateModule,
-    ReactiveFormsModule
+    MyDatePickerModule
   ],
   providers: [
     {
