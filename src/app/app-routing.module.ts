@@ -6,7 +6,7 @@ import {HoleCurveComponent} from './hole-curve/hole-curve.component';
 import {SurfaceCurveComponent} from './surface-curve/surface-curve.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/mainpage', pathMatch: 'full'},
+  {path: '', redirectTo: 'mainpage', pathMatch: 'full'},
   {path: 'mainpage', component: MainComponent},
   {path: 'segmentDetail', component: SegmentDetailComponent},
   {path: 'holeCurve', component: HoleCurveComponent},
