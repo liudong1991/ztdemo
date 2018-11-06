@@ -1,11 +1,9 @@
 <div class="handler">
-
   <ul>
     <li *ngFor="let h of handlers">{{h}}</li>
   </ul>
-
 </div>
 
 <div class="curve">
-
+  <div echarts [options]="chartOption" style="height: 100%; width: 100%;"></div>
 </div>
