@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {DeepHoleCurveComponent} from '../deep-hole-curve/deep-hole-curve.component';
 
 @Component({
   selector: 'app-hole-curve',
@@ -7,6 +8,9 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./hole-curve.component.css']
 })
 export class HoleCurveComponent implements OnInit {
+
+  @ViewChild('holeCurve')
+  holeCurve: DeepHoleCurveComponent;
 
   constructor(private route: ActivatedRoute) {
     route.queryParams.subscribe(queryParams => {
@@ -23,6 +27,11 @@ export class HoleCurveComponent implements OnInit {
 
   setSelectedSite(value: string) {
     this.selectedSite = value;
+    this.refreshHoleCurve(value);
+  }
+
+  refreshHoleCurve(siteName: string): void {
+    this.holeCurve.setChartOption(siteName);
   }
 
 }

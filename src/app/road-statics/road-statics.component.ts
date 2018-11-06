@@ -72,7 +72,7 @@ export class RoadStaticsComponent implements OnInit {
         radius: '55%',
         center: ['50%', '50%'],
         data: [
-          {value: 100, name: '关注级'},
+          {value: 1, name: '关注级'},
           {value: 0, name: '注意级'},
           {value: 0, name: '预警级'},
           {value: 0, name: '报警级'}
@@ -113,7 +113,7 @@ export class RoadStaticsComponent implements OnInit {
         radius: '55%',
         center: ['50%', '50%'],
         data: [
-          {value: 100, name: '无病害'},
+          {value: 1, name: '无病害'},
           {value: 0, name: '坡面溜塌、危岩落石'},
           {value: 0, name: '边坡局部变形、危岩落石'},
           {value: 0, name: '滑坡(边坡整体滑动)'}
@@ -153,7 +153,7 @@ export class RoadStaticsComponent implements OnInit {
         radius: '55%',
         center: ['50%', '50%'],
         data: [
-          {value: 100, name: '0~20m'},
+          {value: 1, name: '0~20m'},
           {value: 0, name: '21~30m'},
           {value: 0, name: '31~40m'},
           {value: 0, name: '41~50m'},
@@ -193,7 +193,7 @@ export class RoadStaticsComponent implements OnInit {
         radius: '55%',
         center: ['50%', '50%'],
         data: [
-          {value: 100, name: '均质土边坡'},
+          {value: 1, name: '均质土边坡'},
           {value: 0, name: '类土质边坡'},
           {value: 0, name: '破碎岩石边坡'},
           {value: 0, name: '层状岩石边坡'},

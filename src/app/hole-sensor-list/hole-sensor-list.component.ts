@@ -12,6 +12,8 @@ export class HoleSensorListComponent implements OnInit {
 
   @Output() onHoleAndSensorChange = new EventEmitter<boolean>();
 
+  @Output() onHoleChange = new EventEmitter<string>();
+
   isSelected: boolean = true;
 
   siteClass: any = {

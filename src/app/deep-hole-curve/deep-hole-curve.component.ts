@@ -16,13 +16,7 @@ export class DeepHoleCurveComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.siteName === 'DTS-1') {
-      this.data = data1;
-    }
-    else if (this.siteName === 'DTS-2') {
-      this.data = data2;
-    }
-    this.setChartOption();
+    this.setChartOption(this.siteName);
   }
 
   handlers: string[] = ['累积位移', '监测数据'];
@@ -31,10 +25,16 @@ export class DeepHoleCurveComponent implements OnInit {
 
   chartOption: any = {};
 
-  setChartOption():void {
+  setChartOption(siteName: string):void {
+    if (siteName === 'DTS-1') {
+      this.data = data1;
+    }
+    else if (siteName === 'DTS-2') {
+      this.data = data2;
+    }
     this.chartOption = {
       title: {
-        text: `累积位移变化曲线(${this.siteName})`,
+        text: `累积位移变化曲线(${siteName})`,
         x: 'center'
       },
       tooltip: {

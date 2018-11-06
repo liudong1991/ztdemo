@@ -34,7 +34,7 @@
       <div class="title">{{iswhichShow?'深部位移监测孔监测曲线':'深孔单个传感器监测曲线'}}</div>
       <div class="content">
         <div *ngIf="iswhichShow">
-          <app-deep-hole-curve [siteName]="selectedSite"></app-deep-hole-curve>
+          <app-deep-hole-curve #holeCurve [siteName]="selectedSite"></app-deep-hole-curve>
         </div>
         <div *ngIf="!iswhichShow">
           <app-deep-hole-sensor-curve></app-deep-hole-sensor-curve>
