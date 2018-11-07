@@ -51,4 +51,11 @@ export class SitePhotosComponent implements OnInit {
     'assets/pic/004.jpg',
   ];
 
+  xianchang: string[] = [
+    'assets/pic/005.jpg',
+    'assets/pic/006.jpg',
+    'assets/pic/基站.JPG',
+    'assets/pic/测点.JPG'
+  ];
+
 }

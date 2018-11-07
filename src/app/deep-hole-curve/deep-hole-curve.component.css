@@ -6,18 +6,23 @@ li {
 }
 
 li:hover {
-background-color: lightskyblue;
-color: white;
+  background-color: lightskyblue;
+  color: white;
 }
 
 .handler {
   height: 40px;
 }
 
-.curve{
+.curve {
   position: absolute;
   top: 40px;
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.selected {
+  background-color: skyblue;
+  color: white;
 }

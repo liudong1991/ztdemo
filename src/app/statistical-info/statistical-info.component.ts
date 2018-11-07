@@ -41,7 +41,7 @@ export class StatisticalInfoComponent implements OnInit {
         radius: '55%',
         center: ['50%', '50%'],
         data: [
-          {value: 2, name: '稳定'},
+          {value: 1, name: '稳定'},
           {value: 0, name: '四级预警'},
           {value: 0, name: '三级预警'},
           {value: 0, name: '二级报警'},
@@ -129,7 +129,7 @@ export class StatisticalInfoComponent implements OnInit {
         name: '深孔',
         type: 'bar',
         barWidth: '60%',
-        data: [2, 0, 0, 0, 0],
+        data: [1, 0, 0, 0, 0],
         itemStyle: {
           normal: {
             color: function (params) {

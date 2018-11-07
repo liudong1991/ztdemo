@@ -65,8 +65,8 @@ export class HoleSensorListComponent implements OnInit {
   }
 
   itemList: any[] = [
-    {'siteName': 'DTS-1', 'sensorList': ['2', '4', '6', '8', '10', '12']},
-    {'siteName': 'DTS-2', 'sensorList': ['1.5', '3', '4.5', '5', '6', '7.5']}
+    {'siteName': 'DTS-1', 'sensorList': ['2', '4', '6', '8', '10', '12']}/*,
+    {'siteName': 'DTS-2', 'sensorList': ['1.5', '3', '4.5', '5', '6', '7.5']}*/
   ];
 
   siteSelectedIndex: number = 0;

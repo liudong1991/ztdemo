@@ -34,6 +34,8 @@ import {DeepHoleSensorCurveComponent} from './deep-hole-sensor-curve/deep-hole-s
 import {TimeSelectorComponent} from './time-selector/time-selector.component';
 import {MyDatePickerModule} from 'mydatepicker';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { SiteSensorListComponent } from './site-sensor-list/site-sensor-list.component';
+import { SurfaceSiteCurveComponent } from './surface-site-curve/surface-site-curve.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -61,7 +63,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     HoleSensorListComponent,
     DeepHoleCurveComponent,
     DeepHoleSensorCurveComponent,
-    TimeSelectorComponent
+    TimeSelectorComponent,
+    SiteSensorListComponent,
+    SurfaceSiteCurveComponent
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@ export class MonitoringInfoComponent implements OnInit {
   holeSites: Site[] = [
     {
       cross: 'K37+666',
-      siteNo: ['DTS-1', 'DTS-2']
+      siteNo: ['DTS-1'/*, 'DTS-2'*/]
     }
   ];
 
@@ -54,8 +54,13 @@ export class MonitoringInfoComponent implements OnInit {
     });
   }
 
-  toSurfaceCurve(): void {
-    this.router.navigateByUrl('surfaceCurve');
+  toSurfaceCurve(item: string): void {
+    console.log(item);
+    this.router.navigate(['surfaceCurve'], {
+      queryParams: {
+        item: item
+      }
+    });
   }
 
 }

@@ -44,10 +44,7 @@ export class ArrangementDiagramComponent implements OnInit {
   }
 
   pics: string[] = [
-    'assets/pic/001.jpg',
-    'assets/pic/002.jpg',
-    'assets/pic/003.jpg',
-    'assets/pic/004.jpg',
+    'assets/pic/立面图.png'
   ];
 
 }

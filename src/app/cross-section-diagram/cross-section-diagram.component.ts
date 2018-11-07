@@ -45,10 +45,7 @@ export class CrossSectionDiagramComponent implements OnInit {
   }
 
   pics: string[] = [
-    'assets/pic/001.jpg',
-    'assets/pic/002.jpg',
-    'assets/pic/003.jpg',
-    'assets/pic/004.jpg',
+    'assets/pic/断面图.png'
   ];
 
 }

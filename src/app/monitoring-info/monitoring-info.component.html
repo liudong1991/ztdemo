@@ -28,7 +28,7 @@
         <tbody *ngFor="let item of surfaceSites">
         <tr *ngFor="let tem of item.siteNo;let i = index">
           <td *ngIf="i==0" [attr.rowspan]="item.siteNo.length">{{item.cross}}</td>
-          <td class="item" (click)="toSurfaceCurve()">{{tem}}</td>
+          <td class="item" (click)="toSurfaceCurve(tem)">{{tem}}</td>
         </tr>
         </tbody>
       </table>

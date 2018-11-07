@@ -1,0 +1,28 @@
+li {
+  display: inline-block;
+  padding: 4px;
+  background-color: #f0f0f0;
+  margin: 8px;
+}
+
+li:hover {
+  background-color: lightskyblue;
+  color: white;
+}
+
+.handler {
+  height: 40px;
+}
+
+.curve {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.selected {
+  background-color: skyblue;
+  color: white;
+}

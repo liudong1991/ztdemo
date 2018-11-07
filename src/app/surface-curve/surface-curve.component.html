@@ -3,7 +3,7 @@
     <div class="mp-container">
       <div class="title">基本信息</div>
       <div class="content">
-        <app-curve-basic-info></app-curve-basic-info>
+        <app-curve-basic-info [selectedSite]="selectedSite"></app-curve-basic-info>
       </div>
     </div>
   </div>
@@ -11,7 +11,7 @@
     <div class="mp-container">
       <div class="title">监测点和传感器列表</div>
       <div class="content">
-
+        <app-site-sensor-list [selectedSite]="selectedSite" (onSiteChange)="siteChange($event)"></app-site-sensor-list>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
     <div class="mp-container">
       <div class="title">时间选择</div>
       <div class="content">
-
+        <app-time-selector></app-time-selector>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@
     <div class="mp-container">
       <div class="title">地表传感器监测曲线</div>
       <div class="content">
-
+        <app-surface-site-curve></app-surface-site-curve>
       </div>
     </div>
   </div>

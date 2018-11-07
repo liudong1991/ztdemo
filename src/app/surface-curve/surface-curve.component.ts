@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-surface-curve',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SurfaceCurveComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+    route.queryParams.subscribe(queryParams => {
+      this.selectedSite = queryParams.item;
+    });
+  }
 
   ngOnInit() {
+  }
+
+  selectedSite: string = '';
+
+  siteChange(site: string): void {
+    this.selectedSite = site;
   }
 
 }

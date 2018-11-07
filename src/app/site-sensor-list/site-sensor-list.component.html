@@ -1,0 +1,21 @@
+<div class="handler">
+  <div [ngClass]="siteClass" (click)="selectSiteList()">测点</div>
+  <div [ngClass]="sensorClass" (click)="selectSensorList()">传感器</div>
+</div>
+
+<div class="list">
+  <ul *ngIf="isSelected">
+    <li *ngFor="let item of itemList; let i = index"
+        [class.selected]="i===siteSelectedIndex"
+        (click)="selectSite(i)">
+      {{item.site}}
+    </li>
+  </ul>
+
+  <ul *ngIf="!isSelected">
+    <li [class.selected]="true"
+        (click)="selectSensor()">
+      {{itemList[siteSelectedIndex].sensor}}
+    </li>
+  </ul>
+</div>

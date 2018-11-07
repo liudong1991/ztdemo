@@ -1,6 +1,8 @@
 <div class="handler">
   <ul>
-    <li *ngFor="let h of handlers">{{h}}</li>
+    <li *ngFor="let h of handlers;let i = index"
+        [class.selected]="i===selectedHandlerIndex"
+    (click)="selectHandler(i)">{{h}}</li>
   </ul>
 </div>
 
