@@ -3,7 +3,7 @@
     <tr>
       <td *ngFor="let header of headers">{{header}}</td>
     </tr>
-    <tr *ngFor="let segment of data" (click)="goSegmentDetail()">
+    <tr *ngFor="let segment of data; let i = index" (click)="goSegmentDetail(i)">
       <td>{{segment.segmentNum}}</td>
       <td>{{segment.stake}}</td>
       <td>{{segment.usedStake}}</td>

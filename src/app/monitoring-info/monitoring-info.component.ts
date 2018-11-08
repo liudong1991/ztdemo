@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Site} from '../site';
 import {Router} from '@angular/router';
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-monitoring-info',
@@ -9,55 +10,37 @@ import {Router} from '@angular/router';
 })
 export class MonitoringInfoComponent implements OnInit {
 
-  constructor(private router: Router) {
+  @Input() index: number;
+
+  holeSites: any[] = [];
+  surfaceSites: any[] = [];
+
+  constructor(private router: Router, private dataService: DataService) {
   }
 
   ngOnInit() {
+    this.holeSites = this.dataService.getSiteInfo()[this.index].holeSites;
+    this.surfaceSites = this.dataService.getSiteInfo()[this.index].surfaceSites;
   }
 
-  holeSites: Site[] = [
-    {
-      cross: 'K37+666',
-      siteNo: ['DTS-1'/*, 'DTS-2'*/]
-    }
-  ];
-
-  surfaceSites: Site[] = [
-    {
-      cross: 'K37+573',
-      siteNo: ['STS1-1', 'STS1-2', 'STS1-3', 'STS1-4', 'STS1-5']
-    },
-    {
-      cross: 'K37+591',
-      siteNo: ['STS2-1', 'STS2-2', 'STS2-3', 'STS2-4', 'STS2-5', 'STS2-6']
-    },
-    {
-      cross: 'K37+606',
-      siteNo: ['STS3-1', 'STS3-2', 'STS3-3', 'STS3-4', 'STS3-5']
-    },
-    {
-      cross: 'K37+628',
-      siteNo: ['STS4-1', 'STS4-2', 'STS4-3', 'STS4-4', 'STS4-5', 'STS4-6']
-    },
-    {
-      cross: 'K37+666',
-      siteNo: ['STS5-1', 'STS5-2', 'STS5-3']
-    },
-  ];
-
-  toHoleCurve(item: string): void {
-    // this.router.navigateByUrl('holeCurve');
+  toHoleCurve(item: string, i: number, cross: string): void {
     this.router.navigate(['holeCurve'], {
       queryParams: {
+        index: this.index,
+        listIndex: i,
+        cross: cross,
         item: item
       }
     });
   }
 
-  toSurfaceCurve(item: string): void {
+  toSurfaceCurve(item: string, i: number, cross: string): void {
     console.log(item);
     this.router.navigate(['surfaceCurve'], {
       queryParams: {
+        index: this.index,
+        listIndex: i,
+        cross: cross,
         item: item
       }
     });

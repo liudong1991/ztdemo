@@ -1,42 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-
-const LIST: any[][] = [
-  [
-    {site: 'STS1-1', sensor: '680'},
-    {site: 'STS1-2', sensor: '510'},
-    {site: 'STS1-3', sensor: '564'},
-    {site: 'STS1-4', sensor: '891'},
-    {site: 'STS1-5', sensor: '764'}
-  ],
-  [
-    {site: 'STS2-1', sensor: '692'},
-    {site: 'STS2-2', sensor: '879'},
-    {site: 'STS2-3', sensor: '875'},
-    {site: 'STS2-4', sensor: '662'},
-    {site: 'STS2-5', sensor: '574'},
-    {site: 'STS2-6', sensor: '787'}
-  ],
-  [
-    {site: 'STS3-1', sensor: '827'},
-    {site: 'STS3-2', sensor: '986'},
-    {site: 'STS3-3', sensor: '740'},
-    {site: 'STS3-4', sensor: '993'},
-    {site: 'STS3-5', sensor: '615'}
-  ],
-  [
-    {site: 'STS4-1', sensor: '981'},
-    {site: 'STS4-2', sensor: '695'},
-    {site: 'STS4-3', sensor: '777'},
-    {site: 'STS4-4', sensor: '932'},
-    {site: 'STS4-5', sensor: '994'},
-    {site: 'STS4-6', sensor: '633'}
-  ],
-  [
-    {site: 'STS5-1', sensor: '952'},
-    {site: 'STS5-2', sensor: '915'},
-    {site: 'STS5-3', sensor: '945'}
-  ]
-];
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-site-sensor-list',
@@ -45,6 +8,8 @@ const LIST: any[][] = [
 })
 export class SiteSensorListComponent implements OnInit {
 
+  @Input() index: number;
+  @Input() listIndex: number;
   @Input() selectedSite: string;
 
   @Output() onSiteChange = new EventEmitter<string>();
@@ -61,17 +26,17 @@ export class SiteSensorListComponent implements OnInit {
     'selector': !this.isSelected
   };
 
-  constructor() {
+  constructor(private dataService: DataService) {
   }
 
+  list: any[] = [];
+
   ngOnInit() {
-    for (let i = 0; i < LIST.length; i++) {
-      for (let j = 0; j < LIST[i].length; j++) {
-        if (LIST[i][j].site === this.selectedSite) {
-          this.itemList = LIST[i];
-          this.siteSelectedIndex = j;
-          break;
-        }
+    this.itemList = this.dataService.getSiteInfo()[this.index].surfaceSites[this.listIndex].siteNo;
+    for (let i = 0; i < this.itemList.length; i++) {
+      if (this.itemList[i].site === this.selectedSite) {
+        this.siteSelectedIndex = i;
+        break;
       }
     }
   }

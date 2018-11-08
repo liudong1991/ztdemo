@@ -3,7 +3,10 @@
     <div class="mp-container">
       <div class="title">基本信息</div>
       <div class="content">
-        <app-curve-basic-info [selectedSite]="selectedSite"></app-curve-basic-info>
+        <app-curve-basic-info
+          [index]="index"
+          [cross]="cross"
+          [selectedSite]="selectedSite"></app-curve-basic-info>
       </div>
     </div>
   </div>
@@ -12,6 +15,8 @@
       <div class="title">监测点和传感器列表</div>
       <div class="content">
         <app-hole-sensor-list
+          [index]="index"
+          [listIndex]="listIndex"
           [selectedSite]="selectedSite"
           (switchSite)="setSelectedSite($event)"
           (onHoleAndSensorChange)="iswhichShow=$event"></app-hole-sensor-list>
@@ -37,7 +42,9 @@
           <app-deep-hole-curve #holeCurve [siteName]="selectedSite"></app-deep-hole-curve>
         </div>
         <div *ngIf="!iswhichShow">
-          <app-deep-hole-sensor-curve></app-deep-hole-sensor-curve>
+          <app-deep-hole-sensor-curve
+            [selectedSite]="selectedSite"
+          [selectedSensorIndex]=""></app-deep-hole-sensor-curve>
         </div>
       </div>
     </div>

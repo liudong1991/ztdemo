@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-topographic-info',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topographic-info.component.css']
 })
 export class TopographicInfoComponent implements OnInit {
+
+  @Input() segment: any;
 
   constructor() { }
 

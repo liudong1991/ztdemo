@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-hole-sensor-list',
@@ -7,10 +8,12 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class HoleSensorListComponent implements OnInit {
 
-  @Output() switchSite = new EventEmitter<string>();
+  @Input() index: number;
+  @Input() listIndex: number;
   @Input() selectedSite: string;
 
   @Output() onHoleAndSensorChange = new EventEmitter<boolean>();
+  @Output() switchSite = new EventEmitter<string>();
 
   @Output() onHoleChange = new EventEmitter<string>();
 
@@ -26,11 +29,11 @@ export class HoleSensorListComponent implements OnInit {
     'selector': !this.isSelected
   };
 
-  constructor() {
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
-    console.log(this.selectedSite);
+    this.itemList = this.dataService.getSiteInfo()[this.index].holeSites[this.listIndex].siteNo;
     for (let i = 0; i < this.itemList.length; i++) {
       if (this.itemList[i].siteName === this.selectedSite) {
         this.siteSelectedIndex = i;

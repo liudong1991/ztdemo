@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Curve} from '../curve';
+import {DataService} from '../data.service';
+import {Segment} from '../segment';
 
 @Component({
   selector: 'app-curve-basic-info',
@@ -9,18 +11,16 @@ import {Curve} from '../curve';
 export class CurveBasicInfoComponent implements OnInit {
 
   @Input() selectedSite: string;
+  @Input() index: number;
+  @Input() cross: string;
 
-  constructor() {
+  segment: Segment | Segment[];
+
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
+    console.log("基本信息："+this.index);
+    this.segment = this.dataService.getSegments(this.index);
   }
-
-  siteInfo: Curve = {
-    segmentNo: '001',
-    strake: 'K37+445~K37+820',
-    position: '右侧',
-    cross: 'K37+666',
-    siteNo: 'DTS-1'
-  };
 }

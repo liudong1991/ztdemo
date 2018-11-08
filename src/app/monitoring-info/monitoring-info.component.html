@@ -7,10 +7,10 @@
           <td>监测断面</td>
           <td>测点编号</td>
         </tr>
-        <tbody *ngFor="let item of holeSites">
+        <tbody *ngFor="let item of holeSites;let j = index">
         <tr *ngFor="let tem of item.siteNo;let i = index">
           <td *ngIf="i==0" [attr.rowspan]="item.siteNo.length">{{item.cross}}</td>
-          <td class="item" (click)="toHoleCurve(tem)">{{tem}}</td>
+          <td class="item" (click)="toHoleCurve(tem.siteName,j,item.cross)">{{tem.siteName}}</td>
         </tr>
         </tbody>
       </table>
@@ -25,10 +25,10 @@
           <td>监测断面</td>
           <td>测点编号</td>
         </tr>
-        <tbody *ngFor="let item of surfaceSites">
+        <tbody *ngFor="let item of surfaceSites;let j = index">
         <tr *ngFor="let tem of item.siteNo;let i = index">
           <td *ngIf="i==0" [attr.rowspan]="item.siteNo.length">{{item.cross}}</td>
-          <td class="item" (click)="toSurfaceCurve(tem)">{{tem}}</td>
+          <td class="item" (click)="toSurfaceCurve(tem.site, j,item.cross)">{{tem.site}}</td>
         </tr>
         </tbody>
       </table>

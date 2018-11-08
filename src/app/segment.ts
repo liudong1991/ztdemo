@@ -1,5 +1,5 @@
 export class Segment {
-
+  roadName: string;
   segmentNum: string;
   stake: string;
   usedStake: string;
@@ -13,5 +13,9 @@ export class Segment {
   pHeight: number;
   Lng: number;
   Lat: number;
-
+  dxdm: string;
+  dcyx: string;
+  dzgz: string;
+  swdz: string;
+  gcjj: string;
 }

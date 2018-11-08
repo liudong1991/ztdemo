@@ -15,6 +15,9 @@ export class HoleCurveComponent implements OnInit {
   constructor(private route: ActivatedRoute) {
     route.queryParams.subscribe(queryParams => {
       this.selectedSite = queryParams.item;
+      this.index = queryParams.index;
+      this.listIndex = queryParams.listIndex;
+      this.cross = queryParams.cross;
     });
   }
 
@@ -22,6 +25,10 @@ export class HoleCurveComponent implements OnInit {
   }
 
   selectedSite: string = '';
+  selectedSensorIndex: number = 0;
+  index: number;
+  listIndex: number;
+  cross: string;
 
   iswhichShow: boolean = true;
 

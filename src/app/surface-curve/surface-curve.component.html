@@ -3,7 +3,10 @@
     <div class="mp-container">
       <div class="title">基本信息</div>
       <div class="content">
-        <app-curve-basic-info [selectedSite]="selectedSite"></app-curve-basic-info>
+        <app-curve-basic-info
+          [index]="index"
+          [cross]="cross"
+          [selectedSite]="selectedSite"></app-curve-basic-info>
       </div>
     </div>
   </div>
@@ -11,7 +14,11 @@
     <div class="mp-container">
       <div class="title">监测点和传感器列表</div>
       <div class="content">
-        <app-site-sensor-list [selectedSite]="selectedSite" (onSiteChange)="siteChange($event)"></app-site-sensor-list>
+        <app-site-sensor-list
+          [index]="index"
+          [listIndex]="listIndex"
+          [selectedSite]="selectedSite"
+          (onSiteChange)="siteChange($event)"></app-site-sensor-list>
       </div>
     </div>
   </div>

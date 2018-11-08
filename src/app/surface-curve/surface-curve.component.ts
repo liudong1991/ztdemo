@@ -11,6 +11,9 @@ export class SurfaceCurveComponent implements OnInit {
   constructor(private route: ActivatedRoute) {
     route.queryParams.subscribe(queryParams => {
       this.selectedSite = queryParams.item;
+      this.index = queryParams.index;
+      this.listIndex = queryParams.listIndex;
+      this.cross = queryParams.cross;
     });
   }
 
@@ -18,6 +21,9 @@ export class SurfaceCurveComponent implements OnInit {
   }
 
   selectedSite: string = '';
+  index: number;
+  listIndex: number;
+  cross: string;
 
   siteChange(site: string): void {
     this.selectedSite = site;
