@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {SurfaceSiteCurveComponent} from '../surface-site-curve/surface-site-curve.component';
 
 @Component({
   selector: 'app-surface-curve',
@@ -7,6 +8,9 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./surface-curve.component.css']
 })
 export class SurfaceCurveComponent implements OnInit {
+
+  @ViewChild('surfaceCurve')
+  surfaceCurve: SurfaceSiteCurveComponent;
 
   constructor(private route: ActivatedRoute) {
     route.queryParams.subscribe(queryParams => {
@@ -27,6 +31,7 @@ export class SurfaceCurveComponent implements OnInit {
 
   siteChange(site: string): void {
     this.selectedSite = site;
+    this.surfaceCurve.setChartOption(this.index, this.selectedSite);
   }
 
 }

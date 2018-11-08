@@ -20,7 +20,6 @@ export class CurveBasicInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("基本信息："+this.index);
     this.segment = this.dataService.getSegments(this.index);
   }
 }

@@ -37,7 +37,10 @@
     <div class="mp-container">
       <div class="title">地表传感器监测曲线</div>
       <div class="content">
-        <app-surface-site-curve></app-surface-site-curve>
+        <app-surface-site-curve
+          #surfaceCurve
+          [index]="index"
+          [selectedSite]="selectedSite"></app-surface-site-curve>
       </div>
     </div>
   </div>

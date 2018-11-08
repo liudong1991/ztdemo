@@ -14,8 +14,7 @@ export class HoleSensorListComponent implements OnInit {
 
   @Output() onHoleAndSensorChange = new EventEmitter<boolean>();
   @Output() switchSite = new EventEmitter<string>();
-
-  @Output() onHoleChange = new EventEmitter<string>();
+  @Output() switchSensor = new EventEmitter<number>();
 
   isSelected: boolean = true;
 
@@ -67,10 +66,7 @@ export class HoleSensorListComponent implements OnInit {
     };
   }
 
-  itemList: any[] = [
-    {'siteName': 'DTS-1', 'sensorList': ['2', '4', '6', '8', '10', '12']}/*,
-    {'siteName': 'DTS-2', 'sensorList': ['1.5', '3', '4.5', '5', '6', '7.5']}*/
-  ];
+  itemList: any[] = [];
 
   siteSelectedIndex: number = 0;
   sensorSelectedIndex: number = 0;
@@ -82,7 +78,7 @@ export class HoleSensorListComponent implements OnInit {
 
   selectSensor(index: number) {
     this.sensorSelectedIndex = index;
+    this.switchSensor.emit(index);
   }
-
 
 }

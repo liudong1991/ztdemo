@@ -6,6 +6,9 @@ import {Segment} from './segment';
 })
 export class DataService {
 
+  constructor() {
+  }
+
   segments: Segment[] = [
     {
       roadName: '玉溪至楚雄高速公路',
@@ -50,9 +53,6 @@ export class DataService {
       gcjj: 'K37+600段为挖方路基。边坡最高为五级，边坡坡比为1:1～1:1.25，原设计为采用锚杆框格梁防护。2016年10月下旬，在边坡开挖至第一级边坡位置时，该段挖方边坡发生坍塌及工程滑坡。 按边坡开挖后的情况和岩层产状推测，潜在工程滑坡位于K37+445~K37+820段，前缘位于公路边坡脚，后缘将位于坡口线以外约50m，滑坡滑动方向垂直于路线。潜在工程滑坡长375米，最宽115米，平面面积26100m2，滑体最大厚度22m，滑体体积约为2.87×105m3，属于中型深层牵引式基岩顺层滑坡。'
     }
   ];
-
-  constructor() {
-  }
 
   getSegments(index?: number): Segment | Segment[] {
     if (index === undefined) {
@@ -170,5 +170,44 @@ export class DataService {
 
   getSiteInfo() {
     return this.siteInfo;
+  }
+
+  alarmInfo: any[] = [
+    {
+      hole: {
+        wd: 1,
+        siji: 0,
+        sanji: 0,
+        erji: 0,
+        yiji: 0
+      },
+      surface: {
+        wd: 26,
+        siji: 0,
+        sanji: 0,
+        erji: 0,
+        yiji: 0
+      }
+    },
+    {
+      hole: {
+        wd: 1,
+        siji: 0,
+        sanji: 0,
+        erji: 0,
+        yiji: 0
+      },
+      surface: {
+        wd: 6,
+        siji: 0,
+        sanji: 0,
+        erji: 0,
+        yiji: 0
+      }
+    }
+  ];
+
+  getAlarmInfo(index: number) {
+    return this.alarmInfo[index];
   }
 }

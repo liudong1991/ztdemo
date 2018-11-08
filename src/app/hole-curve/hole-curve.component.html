@@ -19,7 +19,8 @@
           [listIndex]="listIndex"
           [selectedSite]="selectedSite"
           (switchSite)="setSelectedSite($event)"
-          (onHoleAndSensorChange)="iswhichShow=$event"></app-hole-sensor-list>
+          (switchSensor)="refreshSensorCurve($event)"
+          (onHoleAndSensorChange)="holeAndSensorListChange($event)"></app-hole-sensor-list>
       </div>
     </div>
   </div>
@@ -43,8 +44,9 @@
         </div>
         <div *ngIf="!iswhichShow">
           <app-deep-hole-sensor-curve
+            #sensorCurve
             [selectedSite]="selectedSite"
-          [selectedSensorIndex]=""></app-deep-hole-sensor-curve>
+            [selectedSensorIndex]="selectedSensorIndex"></app-deep-hole-sensor-curve>
         </div>
       </div>
     </div>
