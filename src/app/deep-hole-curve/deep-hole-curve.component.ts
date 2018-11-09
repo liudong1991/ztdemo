@@ -31,6 +31,7 @@ export class DeepHoleCurveComponent implements OnInit, AfterViewInit {
 
   setChartOption(siteName: string): void {
     this.data = this.curveDataService.getHoleData(siteName);
+
     this.chartOption = {
       title: {
         text: `累积位移变化曲线(${siteName})`,

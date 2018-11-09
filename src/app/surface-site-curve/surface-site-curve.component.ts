@@ -1,4 +1,4 @@
-import {Component, Input, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {SurfaceSensorDataService} from '../surface-sensor-data.service';
 
 @Component({
@@ -39,6 +39,8 @@ export class SurfaceSiteCurveComponent implements OnInit {
       data = this.surfaceSensorDataService.getSurfaceSensorDataY(index, selectedSite);
     }
 
+    console.log(data);
+
     let title: string = this.selectedHandlerIndex === 0 ? 'X角度变化曲线' : 'Y角度变化曲线';
 
     this.chartOption = {
@@ -50,7 +52,6 @@ export class SurfaceSiteCurveComponent implements OnInit {
       tooltip: {
         trigger: 'item',
         formatter: function (a) {
-          console.log(a);
           return a.seriesName + '<br/>' + '变化量：' + a.value[1] + 'mm' + '<br/>' + '时间点：' + a.value[0];
         }
       },
@@ -102,9 +103,9 @@ export class SurfaceSiteCurveComponent implements OnInit {
         nameLocation: 'middle',
         nameTextStyle: {
           padding: 18
-        },
+        }/*,
         max: 5,
-        min: -5
+        min: -5*/
       },
       series: [
         data

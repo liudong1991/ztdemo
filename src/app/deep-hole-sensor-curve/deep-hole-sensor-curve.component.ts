@@ -100,9 +100,9 @@ export class DeepHoleSensorCurveComponent implements OnInit {
         nameLocation: 'middle',
         nameTextStyle: {
           padding: 18
-        },
+        }/*,
         max: 5,
-        min: -5
+        min: -5*/
       },
       series: [
         data

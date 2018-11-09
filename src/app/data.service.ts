@@ -18,7 +18,7 @@ export class DataService {
       company: '中铁开发投资有限公司',
       position: '右侧',
       skNum: 1,
-      dbNum: 25,
+      dbNum: 5,
       pDirection: 278,
       trend: 188,
       pLength: 567,
@@ -69,7 +69,7 @@ export class DataService {
           siteNo: [
             {
               siteName: 'DTS-1',
-              sensorList: ['2', '4', '6', '8', '10', '12']
+              sensorList: ['2', '4', '6', '8', '10', '12', '14', '16', '18', '20']
             }
           ]
         }
@@ -85,7 +85,7 @@ export class DataService {
             {site: 'STS1-5', sensor: '764'}
           ]
         },
-        {
+        /*{
           cross: 'K37+591',
           siteNo: [
             {site: 'STS2-1', sensor: '692'},
@@ -124,7 +124,7 @@ export class DataService {
             {site: 'STS5-2', sensor: '915'},
             {site: 'STS5-3', sensor: '945'}
           ]
-        },
+        },*/
       ]
     },
     {
@@ -182,7 +182,7 @@ export class DataService {
         yiji: 0
       },
       surface: {
-        wd: 26,
+        wd: 5,
         siji: 0,
         sanji: 0,
         erji: 0,
