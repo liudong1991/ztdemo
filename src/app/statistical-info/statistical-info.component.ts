@@ -137,6 +137,7 @@ export class StatisticalInfoComponent implements OnInit {
         {
           type: 'value',
           name: '个数',
+          minInterval: 1
         }
       ],
       series: [
@@ -182,6 +183,7 @@ export class StatisticalInfoComponent implements OnInit {
         {
           type: 'value',
           name: '个数',
+          minInterval: 1
         }
       ],
       series: [

@@ -22,11 +22,27 @@ export class MainComponent implements OnInit {
     //   mapTypeId: qq.maps.MapTypeId.SATELLITE
     // });
 
-    const map = new BMap.Map('map');
-    const point = new BMap.Point(114.123230, 22.611475);
-    map.centerAndZoom(point, 16);
+    let map = new BMap.Map('map');
+    let point = new BMap.Point(102.2429, 24.3926);
+    let point2 = new BMap.Point(102.45066, 24.190503);
+    map.centerAndZoom(point, 13);
     map.enableScrollWheelZoom(true);
     map.setMapType(BMAP_HYBRID_MAP);
+    let marker = new BMap.Marker(point);
+    let marker2 = new BMap.Marker(point2);
+    map.addOverlay(marker);
+    map.addOverlay(marker2);
+
+    var driving = new BMap.DrivingRoute(map, {
+      renderOptions: {map: map, autoViewport: true},
+      onMarkersSet: function (routes) {
+        map.removeOverlay(routes[0].marker); //删除起点
+        map.removeOverlay(routes[1].marker);//删除终点
+      }
+    });
+
+    driving.search(point, point2);
+
   }
 
 }

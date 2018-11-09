@@ -37,6 +37,16 @@ export class DeepHoleSensorCurveComponent implements OnInit {
       data = this.holeSensorDataService.getDeepHoleSensorDataY(selectedSite, selectedSensorIndex);
     }
 
+    let now: Date = new Date();
+    let temp: any[] = [];
+    data.data.forEach(item => {
+      let date = new Date(item[0]);
+      if (date <= now) {
+        temp.push(item);
+      }
+    });
+    data.data = temp;
+
     let title: string = this.selectedHandlerIndex === 0 ? 'X位移变化曲线' : 'Y位移变化曲线';
 
     this.chartOption = {

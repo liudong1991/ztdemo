@@ -39,7 +39,17 @@ export class SurfaceSiteCurveComponent implements OnInit {
       data = this.surfaceSensorDataService.getSurfaceSensorDataY(index, selectedSite);
     }
 
-    console.log(data);
+    let now: Date = new Date();
+    let temp: any[] = [];
+
+    data.data.forEach(value => {
+      let date = new Date(value[0]);
+      if (date <= now){
+        temp.push(value);
+      }
+    });
+
+    data.data = temp;
 
     let title: string = this.selectedHandlerIndex === 0 ? 'X角度变化曲线' : 'Y角度变化曲线';
 

@@ -32,6 +32,16 @@ export class DeepHoleCurveComponent implements OnInit, AfterViewInit {
   setChartOption(siteName: string): void {
     this.data = this.curveDataService.getHoleData(siteName);
 
+    let temp: any[] = [];
+    let now = new Date();
+    this.data.forEach(value => {
+      let itemDate = new Date(value.name);
+      if (itemDate <= now) {
+        temp.push(value);
+      }
+    });
+    console.log(temp);
+
     this.chartOption = {
       title: {
         text: `累积位移变化曲线(${siteName})`,
@@ -87,7 +97,7 @@ export class DeepHoleCurveComponent implements OnInit, AfterViewInit {
           padding: 10
         }
       },
-      series: this.data
+      series: temp
     };
   }
 
