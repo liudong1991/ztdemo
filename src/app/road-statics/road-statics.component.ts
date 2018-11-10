@@ -72,9 +72,9 @@ export class RoadStaticsComponent implements OnInit {
         radius: '55%',
         center: ['50%', '50%'],
         data: [
-          {value: 2, name: '关注级'},
+          {value: 1, name: '关注级'},
           {value: 0, name: '注意级'},
-          {value: 0, name: '预警级'},
+          {value: 1, name: '预警级'},
           {value: 0, name: '报警级'}
         ],
         label: {

@@ -32,10 +32,10 @@ import {HoleSensorListComponent} from './hole-sensor-list/hole-sensor-list.compo
 import {DeepHoleCurveComponent} from './deep-hole-curve/deep-hole-curve.component';
 import {DeepHoleSensorCurveComponent} from './deep-hole-sensor-curve/deep-hole-sensor-curve.component';
 import {TimeSelectorComponent} from './time-selector/time-selector.component';
-import {MyDatePickerModule} from 'mydatepicker';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { SiteSensorListComponent } from './site-sensor-list/site-sensor-list.component';
 import { SurfaceSiteCurveComponent } from './surface-site-curve/surface-site-curve.component';
+import {Ng2FlatpickrModule} from 'ng2-flatpickr';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -78,7 +78,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SwiperModule,
     MatCardModule,
     NgxEchartsModule,
-    MyDatePickerModule
+    Ng2FlatpickrModule
   ],
   providers: [
     {

@@ -40,7 +40,6 @@ export class DeepHoleCurveComponent implements OnInit, AfterViewInit {
         temp.push(value);
       }
     });
-    console.log(temp);
 
     this.chartOption = {
       title: {

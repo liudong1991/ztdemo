@@ -175,9 +175,9 @@ export class DataService {
   alarmInfo: any[] = [
     {
       hole: {
-        wd: 1,
+        wd: 0,
         siji: 0,
-        sanji: 0,
+        sanji: 1,
         erji: 0,
         yiji: 0
       },

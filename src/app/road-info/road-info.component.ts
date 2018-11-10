@@ -10,7 +10,7 @@ export class RoadInfoComponent implements OnInit {
 
   roadInfo: RoadInfo = {
     roadName: '玉溪至楚雄高速公路',
-    stakeNum: 'K0+000~K188+080',
+    stakeNum: 'K35+240~K37+820',
     usedStakeNum: '无',
     roadType: '高速公路',
     province: '云南省',
