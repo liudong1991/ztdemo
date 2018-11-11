@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DeepHoleSensorDataService} from '../deep-hole-sensor-data.service';
+import {StartEndDate} from '../start-end-date';
 
 @Component({
   selector: 'app-deep-hole-sensor-curve',
@@ -11,10 +12,17 @@ export class DeepHoleSensorCurveComponent implements OnInit {
   @Input() selectedSite: string;
   @Input() selectedSensorIndex: number;
 
+  @Input() searchDate: StartEndDate;
+
+  startDate: string;
+  endDate: string;
+
   constructor(private holeSensorDataService: DeepHoleSensorDataService) {
   }
 
   ngOnInit() {
+    this.startDate = this.searchDate.start;
+    this.endDate = this.searchDate.end;
     this.setChartOption(this.selectedSite, this.selectedSensorIndex);
   }
 
@@ -38,14 +46,16 @@ export class DeepHoleSensorCurveComponent implements OnInit {
     }
 
     let now: Date = new Date();
+    let end: Date = new Date(this.endDate) <= now ? new Date(this.endDate) : now;
     let temp: any[] = [];
     data.data.forEach(item => {
       let date = new Date(item[0]);
-      if (date <= now) {
+      if (date <= end && date >= new Date(this.startDate)) {
         temp.push(item);
       }
     });
     data.data = temp;
+    console.log(temp);
 
     let title: string = this.selectedHandlerIndex === 0 ? 'X位移变化曲线' : 'Y位移变化曲线';
 
@@ -58,7 +68,6 @@ export class DeepHoleSensorCurveComponent implements OnInit {
       tooltip: {
         trigger: 'item',
         formatter: function (a) {
-          console.log(a);
           return a.seriesName + '<br/>' + '变化量：' + a.value[1] + 'mm' + '<br/>' + '时间点：' + a.value[0];
         }
       },
@@ -110,14 +119,20 @@ export class DeepHoleSensorCurveComponent implements OnInit {
         nameLocation: 'middle',
         nameTextStyle: {
           padding: 18
-        }/*,
-        max: 5,
-        min: -5*/
+        },
+        max: 10,
+        min: -10
       },
       series: [
         data
       ]
     };
+  }
+
+  setChartOptionWithDate(date: StartEndDate) {
+    this.startDate = date.start;
+    this.endDate = date.end;
+    this.setChartOption(this.selectedSite, this.selectedSensorIndex);
   }
 
 

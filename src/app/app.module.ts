@@ -36,6 +36,7 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { SiteSensorListComponent } from './site-sensor-list/site-sensor-list.component';
 import { SurfaceSiteCurveComponent } from './surface-site-curve/surface-site-curve.component';
 import {Ng2FlatpickrModule} from 'ng2-flatpickr';
+import {MomentModule} from 'ngx-moment';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -78,7 +79,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SwiperModule,
     MatCardModule,
     NgxEchartsModule,
-    Ng2FlatpickrModule
+    Ng2FlatpickrModule,
+    MomentModule
   ],
   providers: [
     {

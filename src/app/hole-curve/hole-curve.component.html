@@ -28,7 +28,9 @@
     <div class="mp-container">
       <div class="title">时间选择</div>
       <div class="content">
-        <app-time-selector></app-time-selector>
+        <app-time-selector
+          #timeSelector
+          (searchCurve)="searchCurve($event)"></app-time-selector>
       </div>
     </div>
   </div>
@@ -40,12 +42,16 @@
       <div class="title">{{iswhichShow?'深部位移监测孔监测曲线':'深孔单个传感器监测曲线'}}</div>
       <div class="content">
         <div *ngIf="iswhichShow">
-          <app-deep-hole-curve #holeCurve [siteName]="selectedSite"></app-deep-hole-curve>
+          <app-deep-hole-curve
+            #holeCurve
+            [siteName]="selectedSite"
+            (dateInitial)="setInitialDate($event)"></app-deep-hole-curve>
         </div>
         <div *ngIf="!iswhichShow">
           <app-deep-hole-sensor-curve
             #sensorCurve
             [selectedSite]="selectedSite"
+            [searchDate]="searchDate"
             [selectedSensorIndex]="selectedSensorIndex"></app-deep-hole-sensor-curve>
         </div>
       </div>

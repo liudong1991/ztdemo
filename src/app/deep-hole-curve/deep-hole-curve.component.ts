@@ -1,5 +1,7 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CurveDataService} from '../curve-data.service';
+import {StartEndDate} from '../start-end-date';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-deep-hole-curve',
@@ -9,12 +11,29 @@ import {CurveDataService} from '../curve-data.service';
 export class DeepHoleCurveComponent implements OnInit, AfterViewInit {
 
   @Input() siteName: string;
+  @Output() dateInitial = new EventEmitter<StartEndDate>();
+
+  startDate: string = '';
+  endDate: string = '';
+
+  emitter: StartEndDate;
+
 
   constructor(private curveDataService: CurveDataService) {
   }
 
   ngOnInit() {
+    console.log("ngOnInit")
     this.setChartOption(this.siteName);
+
+    this.startDate = this.data[this.data.length - 1].name;
+    let now = new Date();
+    this.endDate = moment(now).format('YYYY-MM-DD HH:mm');
+    this.emitter = {
+      start: this.startDate,
+      end: this.endDate
+    };
+    this.dateInitial.emit(this.emitter);
   }
 
   handlers: string[] = ['累积位移'/*, '监测数据'*/];
@@ -34,12 +53,17 @@ export class DeepHoleCurveComponent implements OnInit, AfterViewInit {
 
     let temp: any[] = [];
     let now = new Date();
+    let start: Date = this.startDate === '' ? new Date(this.data[this.data.length - 1].name) : new Date(this.startDate);
+    let end: Date = this.endDate === '' ? now : new Date(this.endDate);
+    end = end <= now ? end : now;
     this.data.forEach(value => {
       let itemDate = new Date(value.name);
-      if (itemDate <= now) {
+      if (itemDate <= end && itemDate >= start) {
         temp.push(value);
       }
     });
+    console.log(start);
+    console.log(end);
 
     this.chartOption = {
       title: {
@@ -85,7 +109,7 @@ export class DeepHoleCurveComponent implements OnInit, AfterViewInit {
           padding: 10
         },
         min: -80,
-        max: 150
+        max: 80
       },
       yAxis: {
         type: 'value',
@@ -100,7 +124,15 @@ export class DeepHoleCurveComponent implements OnInit, AfterViewInit {
     };
   }
 
+  setChartOptionWithDate(date: StartEndDate) {
+    console.log('setChartOptionWithDate');
+    this.startDate = date.start;
+    this.endDate = date.end;
+    this.setChartOption(this.siteName);
+  }
+
   ngAfterViewInit(): void {
+    console.log("ngAfterViewInit")
 
   }
 

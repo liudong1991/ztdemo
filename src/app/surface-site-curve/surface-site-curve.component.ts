@@ -1,21 +1,33 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {SurfaceSensorDataService} from '../surface-sensor-data.service';
+import {StartEndDate} from '../start-end-date';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-surface-site-curve',
   templateUrl: './surface-site-curve.component.html',
   styleUrls: ['./surface-site-curve.component.css']
 })
-export class SurfaceSiteCurveComponent implements OnInit {
+export class SurfaceSiteCurveComponent implements OnInit, AfterViewInit {
 
   @Input() index: number;
   @Input() selectedSite: string;
+
+  @Output() initialDate = new EventEmitter<StartEndDate>();
+
+  data: any[] = [];
+
+  startDate: string = '';
+  endDate: string = '';
 
   constructor(private surfaceSensorDataService: SurfaceSensorDataService) {
   }
 
   ngOnInit() {
     this.setChartOption(this.index, this.selectedSite);
+    let start = this.data[0][0];
+    let end = moment(new Date()).format('YYYY-MM-DD HH:mm');
+    this.initialDate.emit({start: start, end: end});
   }
 
   handlers: string[] = ['X角度', 'Y角度'/*, '监测数据'*/];
@@ -30,8 +42,6 @@ export class SurfaceSiteCurveComponent implements OnInit {
   chartOption: any = {};
 
   setChartOption(index: number, selectedSite: string): void {
-    console.log('index:' + index);
-    console.log('selectedSite:' + selectedSite);
     let data: any;
     if (this.selectedHandlerIndex === 0) {
       data = this.surfaceSensorDataService.getSurfaceSensorDataX(index, selectedSite);
@@ -39,12 +49,19 @@ export class SurfaceSiteCurveComponent implements OnInit {
       data = this.surfaceSensorDataService.getSurfaceSensorDataY(index, selectedSite);
     }
 
+    this.data = data.data;
+
     let now: Date = new Date();
+    let start: Date = this.startDate === '' ? new Date(data.data[0][0]) : new Date(this.startDate);
+    let end: Date = this.endDate === '' ? now : new Date(this.endDate);
+
+    end = end <= now ? end : now;
+
     let temp: any[] = [];
 
     data.data.forEach(value => {
       let date = new Date(value[0]);
-      if (date <= now){
+      if (date <= end && date >= start) {
         temp.push(value);
       }
     });
@@ -62,7 +79,7 @@ export class SurfaceSiteCurveComponent implements OnInit {
       tooltip: {
         trigger: 'item',
         formatter: function (a) {
-          return a.seriesName + '<br/>' + '变化量：' + a.value[1] + 'mm' + '<br/>' + '时间点：' + a.value[0];
+          return a.seriesName + '<br/>' + '变化量：' + a.value[1] + '°' + '<br/>' + '时间点：' + a.value[0];
         }
       },
       grid: {
@@ -121,5 +138,15 @@ export class SurfaceSiteCurveComponent implements OnInit {
         data
       ]
     };
+  }
+
+  setChartOptionWithDate(date: StartEndDate): void {
+    this.startDate = date.start;
+    this.endDate = date.end;
+    this.setChartOption(this.index, this.selectedSite);
+  }
+
+  ngAfterViewInit(): void {
+
   }
 }

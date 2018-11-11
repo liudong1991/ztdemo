@@ -26,7 +26,7 @@
     <div class="mp-container">
       <div class="title">时间选择</div>
       <div class="content">
-        <app-time-selector></app-time-selector>
+        <app-time-selector #timeSelector2 (searchCurve)="searchCurve($event)"></app-time-selector>
       </div>
     </div>
   </div>
@@ -40,6 +40,7 @@
         <app-surface-site-curve
           #surfaceCurve
           [index]="index"
+          (initialDate)="timeInitial($event)"
           [selectedSite]="selectedSite"></app-surface-site-curve>
       </div>
     </div>

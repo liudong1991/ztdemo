@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SurfaceSiteCurveComponent} from '../surface-site-curve/surface-site-curve.component';
+import {StartEndDate} from '../start-end-date';
+import {TimeSelectorComponent} from '../time-selector/time-selector.component';
 
 @Component({
   selector: 'app-surface-curve',
@@ -11,6 +13,8 @@ export class SurfaceCurveComponent implements OnInit {
 
   @ViewChild('surfaceCurve')
   surfaceCurve: SurfaceSiteCurveComponent;
+  @ViewChild('timeSelector2')
+  timeSelector: TimeSelectorComponent;
 
   constructor(private route: ActivatedRoute) {
     route.queryParams.subscribe(queryParams => {
@@ -32,6 +36,15 @@ export class SurfaceCurveComponent implements OnInit {
   siteChange(site: string): void {
     this.selectedSite = site;
     this.surfaceCurve.setChartOption(this.index, this.selectedSite);
+  }
+
+  timeInitial(date: StartEndDate): void {
+    console.log(date);
+    this.timeSelector.setInitialDate(date);
+  }
+
+  searchCurve(date: StartEndDate): void {
+    this.surfaceCurve.setChartOptionWithDate(date);
   }
 
 }
