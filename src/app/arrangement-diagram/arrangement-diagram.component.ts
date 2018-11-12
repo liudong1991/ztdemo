@@ -44,7 +44,7 @@ export class ArrangementDiagramComponent implements OnInit {
   }
 
   pics: string[] = [
-    'assets/pic/立面图.png'
+    'assets/pic/limiantu.png'
   ];
 
 }

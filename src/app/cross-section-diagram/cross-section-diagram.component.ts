@@ -45,7 +45,7 @@ export class CrossSectionDiagramComponent implements OnInit {
   }
 
   pics: string[] = [
-    'assets/pic/断面图.png'
+    'assets/pic/duanmiantu.png'
   ];
 
 }

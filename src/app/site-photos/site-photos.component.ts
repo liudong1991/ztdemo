@@ -44,18 +44,11 @@ export class SitePhotosComponent implements OnInit {
     console.log('Swiper event: ', event);
   }
 
-  pics: string[] = [
-    'assets/pic/001.jpg',
-    'assets/pic/002.jpg',
-    'assets/pic/003.jpg',
-    'assets/pic/004.jpg',
-  ];
-
   xianchang: string[] = [
     'assets/pic/005.jpg',
     'assets/pic/006.jpg',
-    'assets/pic/基站.JPG',
-    'assets/pic/测点.JPG'
+    'assets/pic/jizhan.JPG',
+    'assets/pic/cedian.JPG'
   ];
 
 }

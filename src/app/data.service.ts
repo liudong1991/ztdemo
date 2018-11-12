@@ -54,7 +54,7 @@ export class DataService {
     }
   ];
 
-  getSegments(index?: number): Segment | Segment[] {
+  getSegments(index?: number): any {
     if (index === undefined) {
       return this.segments;
     }

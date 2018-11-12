@@ -14,7 +14,7 @@ export class CurveBasicInfoComponent implements OnInit {
   @Input() index: number;
   @Input() cross: string;
 
-  segment: Segment | Segment[];
+  segment: Segment;
 
   constructor(private dataService: DataService) {
   }
